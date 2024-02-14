@@ -16,7 +16,11 @@ class TColors {
   static Color buttonPrimary = const Color(0xFFA5A5A5).withOpacity(0.25);
 
   // Border colors
-  static Color borderPrimary = const Color(0xFFA5A5A5).withOpacity(0.35);
+  static const Color borderPrimary = Color(0xFFA5A5A5);
+  static Color borderPrimary2 = const Color(0xFFA5A5A5).withOpacity(0.35);
+
+  // Shadows
+  static Color darkShadow = const Color(0xFF232323).withOpacity(0.25);
 
   /// -- Need to test them:
   ///

@@ -21,6 +21,7 @@ dependencies:
   logger: ^2.0.1
   url_launcher: ^6.1.12
   smooth_page_indicator: ^1.1.0
+  google_maps_flutter: ^2.5.3
 
   # Icons
   iconsax: ^0.0.8
@@ -54,6 +55,7 @@ flutter:
 
   assets:
     - assets/logos/
+    - assets/images/
   #   - assets/icons/brands/
   #   - assets/images/content/
   #   - assets/images/banners/
