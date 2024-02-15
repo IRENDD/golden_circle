@@ -31,7 +31,7 @@ class ExploreScreen extends StatelessWidget {
             // The minimum height your sheet can shrink to
             minChildSize: 0.3,
             // The maximum size the bottom sheet can expand to.
-            maxChildSize: 1.0,
+            maxChildSize: 0.95,
 
             builder: (BuildContext context, ScrollController scrollController) {
               return Container(
@@ -84,12 +84,12 @@ class ExploreScreen extends StatelessWidget {
                                 children: [
                                   const TSectionHeading(
                                     title: 'Upcoming Events',
-                                    showActionButton: false,
+                                    showActionButton: true,
                                     textColor: TColors.secondary,
                                   ),
                                   const SizedBox(height: TSizes.spaceBtwItems),
                                   SizedBox(
-                                    height: 180,
+                                    height: 170,
                                     child: ListView.separated(
                                       separatorBuilder: (context, index) =>
                                           const SizedBox(
@@ -101,6 +101,50 @@ class ExploreScreen extends StatelessWidget {
                                           (const TEventCardHorizontal()),
                                     ),
                                   ),
+                                  const SizedBox(
+                                      height: TSizes.spaceBtwSections),
+                                  const TSectionHeading(
+                                    title: 'Upcoming Events',
+                                    showActionButton: true,
+                                    textColor: TColors.secondary,
+                                  ),
+                                  const SizedBox(height: TSizes.spaceBtwItems),
+                                  SizedBox(
+                                    height: 170,
+                                    child: ListView.separated(
+                                      separatorBuilder: (context, index) =>
+                                          const SizedBox(
+                                              width:
+                                                  TSizes.spaceBtwItems * 1.5),
+                                      itemCount: 4,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) =>
+                                          (const TEventCardHorizontal()),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                      height: TSizes.spaceBtwSections),
+                                  const TSectionHeading(
+                                    title: 'Upcoming Events',
+                                    showActionButton: true,
+                                    textColor: TColors.secondary,
+                                  ),
+                                  const SizedBox(height: TSizes.spaceBtwItems),
+                                  SizedBox(
+                                    height: 170,
+                                    child: ListView.separated(
+                                      separatorBuilder: (context, index) =>
+                                          const SizedBox(
+                                              width:
+                                                  TSizes.spaceBtwItems * 1.5),
+                                      itemCount: 4,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) =>
+                                          (const TEventCardHorizontal()),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                      height: TSizes.spaceBtwSections),
                                 ],
                               ),
                             ),

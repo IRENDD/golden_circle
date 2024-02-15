@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:flutter_application_1/common/widgets/images/t_rounded_image.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/image_string.dart';
 import 'package:flutter_application_1/utils/constants/sizes.dart';
@@ -15,12 +13,13 @@ class TEventCardHorizontal extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(TSizes.productImageRadius),
         color: Colors.white,
+        border: Border.all(
+            color: TColors.borderPrimary.withOpacity(0.45), width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: TColors.borderPrimary.withOpacity(0.25),
             spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(0, 2),
+            blurRadius: 7,
           ),
         ],
       ),
@@ -39,27 +38,25 @@ class TEventCardHorizontal extends StatelessWidget {
                 child: Image.asset(TImages.hk_event_1,
                     width: 200, height: 100, fit: BoxFit.cover),
               ),
+
+              /// -- Text of Date
               Padding(
                 padding: const EdgeInsets.all(0),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 8.0,
-                    vertical: 5.0,
-                  ),
-                  decoration: BoxDecoration(
+                      horizontal: 8.0, vertical: 5.0),
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(TSizes.productImageRadius),
-                      topRight: Radius.circular(TSizes.productImageRadius),
-                    ),
+                        bottomLeft: Radius.circular(TSizes.productImageRadius),
+                        topRight: Radius.circular(TSizes.productImageRadius)),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Today',
                     style: TextStyle(
-                      color: TColors.secondary, // Use the appropriate color
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                    ),
+                        color: TColors.secondary,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
               ),
@@ -67,25 +64,20 @@ class TEventCardHorizontal extends StatelessWidget {
           ),
 
           /// -- Text Details
-          Padding(
-            padding: const EdgeInsets.all(TSizes.sm),
+          const Padding(
+            padding: EdgeInsets.all(TSizes.sm),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Temple Street Night',
                   style: TextStyle(
-                    color: TColors.secondary,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: TColors.secondary, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
                 Text(
                   '1.1 km',
-                  style: TextStyle(
-                    color: TColors.textGrey,
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: TColors.textGrey, fontSize: 12),
                 ),
               ],
             ),
