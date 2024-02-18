@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/sizes.dart';
 
 class TRoundedImage extends StatelessWidget {
@@ -7,17 +8,19 @@ class TRoundedImage extends StatelessWidget {
     this.border,
     this.padding,
     this.onPressed,
-    this.width,
-    this.height,
+    required this.width,
+    required this.height,
     this.applyImageRadius = true,
     required this.imageUrl,
-    this.fit = BoxFit.contain,
+    this.fit = BoxFit.cover,
     this.backgroundColor = Colors.transparent,
     this.isNetworkImage = false,
     this.borderRadius = TSizes.md,
+    this.innerShadow = false,
+    this.innerShadowHeigh = 100,
   });
 
-  final double? width, height;
+  final double width, height;
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
@@ -27,6 +30,8 @@ class TRoundedImage extends StatelessWidget {
   final bool isNetworkImage;
   final VoidCallback? onPressed;
   final double borderRadius;
+  final bool innerShadow;
+  final double innerShadowHeigh;
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +42,47 @@ class TRoundedImage extends StatelessWidget {
         height: height,
         padding: padding,
         decoration: BoxDecoration(
-            border: border,
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(borderRadius)),
+          border: border,
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
         child: ClipRRect(
-            borderRadius: applyImageRadius
-                ? BorderRadius.circular(TSizes.md)
-                : BorderRadius.zero,
-            child: Image(
-                fit: fit,
-                image: isNetworkImage
-                    ? NetworkImage(imageUrl)
-                    : AssetImage(imageUrl) as ImageProvider)),
+          borderRadius: applyImageRadius
+              ? BorderRadius.circular(TSizes.md)
+              : BorderRadius.zero,
+          child: Stack(
+            children: [
+              Image(
+                  fit: fit,
+                  width: double.infinity,
+                  height: double.infinity,
+                  image: isNetworkImage
+                      ? NetworkImage(imageUrl)
+                      : AssetImage(imageUrl) as ImageProvider),
+
+              /// -- Shadows
+              if (innerShadow)
+                Positioned(
+                  bottom: 0.0,
+                  child: Container(
+                    width: width,
+                    height: innerShadowHeigh,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(borderRadius),
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [
+                          TColors.black.withOpacity(0.6),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }

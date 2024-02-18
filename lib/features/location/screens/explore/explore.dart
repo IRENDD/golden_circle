@@ -72,14 +72,15 @@ class ExploreScreen extends StatelessWidget {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: TSizes.md, vertical: TSizes.sm),
+                                    horizontal: TSizes.md,
+                                    vertical: TSizes.smm),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     TDragHandle(
                                         color:
                                             TColors.textGrey.withOpacity(0.65)),
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
@@ -104,7 +105,7 @@ class ExploreScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    SliverToBoxAdapter(
+                    const SliverToBoxAdapter(
                       child: Column(
                         children: [
                           EventSection(),

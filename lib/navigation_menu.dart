@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/location/screens/event_details/event_details.dart';
+import 'package:flutter_application_1/features/location/screens/events/events.dart';
 import 'package:flutter_application_1/features/location/screens/explore/explore.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/icon_svg.dart';
@@ -69,7 +71,7 @@ class NavigationController extends GetxController {
 
   final screens = [
     const ExploreScreen(),
-    Container(color: Colors.purple),
+    const EventsScreen(),
     Container(color: Colors.orange)
   ];
 }
