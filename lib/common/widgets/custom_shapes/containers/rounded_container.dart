@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/sizes.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 
 class TRoundedContainer extends StatelessWidget {
   const TRoundedContainer({
@@ -13,18 +14,45 @@ class TRoundedContainer extends StatelessWidget {
     this.showBorder = false,
     this.radius = TSizes.cardRadiusLg,
     this.backgroundColor = TColors.white,
-    this.borderColor = TColors.borderPrimary,
+    this.text,
+    this.textStyle,
+    this.border,
+    this.icon,
+    this.icon1,
   });
 
   final double? width, height;
   final double radius;
   final Widget? child;
   final bool showBorder;
-  final Color borderColor, backgroundColor;
+  final Border? border;
+  final Color backgroundColor;
   final EdgeInsetsGeometry? padding, margin;
+  final Iconify? icon, icon1;
+  final String? text;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> leftGroup = []; // List for the left side (icon and text)
+
+    // If icon is provided, add it to the leftGroup list.
+    if (icon != null) {
+      leftGroup.add(icon!);
+      leftGroup.add(const SizedBox(width: 8)); // Space between icon and text
+    }
+
+    // If text is provided, add it to the leftGroup list.
+    if (text != null) {
+      leftGroup.add(Text(text!,
+          style: textStyle ??
+              TextStyle(
+                fontSize: 13,
+                color: TColors.secondary.withOpacity(0.9),
+                fontWeight: FontWeight.w700,
+              )));
+    }
+
     return Container(
       width: width,
       height: height,
@@ -33,9 +61,20 @@ class TRoundedContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? Border.all(color: borderColor) : null,
+        border: showBorder ? border : null,
       ),
-      child: child,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(children: leftGroup),
+            const SizedBox(width: TSizes.spaceBtwItems / 1.5),
+            if (icon1 != null) icon1!, // Add the right icon if provided
+          ],
+        ),
+      ),
     );
   }
 }

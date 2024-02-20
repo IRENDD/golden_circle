@@ -5,6 +5,19 @@ import '../../constants/colors.dart';
 class TTextTheme {
   TTextTheme._(); // To avoid creating instances
 
+  static TextTheme mainTextTheme = TextTheme(
+    titleMedium: const TextStyle().copyWith(
+        color: TColors.secondary.withOpacity(0.9),
+        fontSize: 23,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.2),
+    bodyMedium: const TextStyle().copyWith(
+        color: TColors.secondary.withOpacity(0.5),
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: -0.2),
+  );
+
   /// Customizable Light Text Theme
   static TextTheme lightTextTheme = TextTheme(
     headlineLarge: const TextStyle().copyWith(

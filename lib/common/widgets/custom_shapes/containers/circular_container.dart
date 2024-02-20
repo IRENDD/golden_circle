@@ -35,8 +35,8 @@ class TCircularContainer extends StatelessWidget {
             style: textStyle ??
                 TextStyle(
                     fontSize: 13,
-                    color: TColors.secondary.withOpacity(0.8),
-                    fontWeight: FontWeight.w600)),
+                    color: TColors.secondary.withOpacity(0.9),
+                    fontWeight: FontWeight.w700)),
       );
     }
 

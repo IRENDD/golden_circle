@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:flutter_application_1/common/widgets/custom_shapes/shapes/drage_handle.dart';
 import 'package:flutter_application_1/common/widgets/images/t_circular_image.dart';
-import 'package:flutter_application_1/features/location/screens/explore/widgets/event_section.dart';
+import 'package:flutter_application_1/features/location/screens/explore/widgets/event_card_builder.dart';
 import 'package:flutter_application_1/map.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/image_string.dart';
@@ -108,10 +108,86 @@ class ExploreScreen extends StatelessWidget {
                     const SliverToBoxAdapter(
                       child: Column(
                         children: [
-                          EventSection(),
-                          EventSection(),
-                          EventSection(),
-                          EventSection(),
+                          EventCardBuilder(
+                              title: 'Upcoming Events',
+                              descTitle: [
+                                'Temple Street Night',
+                                'Discovery of Hong Kong',
+                                'Bus Journey in Central',
+                                'Street Life Market'
+                              ],
+                              descSubTitle: [
+                                '1.1 km',
+                                '10 km',
+                                '2.5 km',
+                                '200 m'
+                              ],
+                              imgList: [
+                                TImages.hk_event_1,
+                                TImages.hk_event_2,
+                                TImages.hk_event_3,
+                                TImages.hk_event_4,
+                              ]),
+                          EventCardBuilder(
+                              title: 'Upcoming Events',
+                              descTitle: [
+                                'Temple Street Night',
+                                'Discovery of Hong Kong',
+                                'Bus Journey in Central',
+                                'Street Life Market'
+                              ],
+                              descSubTitle: [
+                                '1.1 km',
+                                '10 km',
+                                '2.5 km',
+                                '200 m'
+                              ],
+                              imgList: [
+                                TImages.hk_event_1,
+                                TImages.hk_event_2,
+                                TImages.hk_event_3,
+                                TImages.hk_event_4,
+                              ]),
+                          EventCardBuilder(
+                              title: 'Upcoming Events',
+                              descTitle: [
+                                'Temple Street Night',
+                                'Discovery of Hong Kong',
+                                'Bus Journey in Central',
+                                'Street Life Market'
+                              ],
+                              descSubTitle: [
+                                '1.1 km',
+                                '10 km',
+                                '2.5 km',
+                                '200 m'
+                              ],
+                              imgList: [
+                                TImages.hk_event_1,
+                                TImages.hk_event_2,
+                                TImages.hk_event_3,
+                                TImages.hk_event_4,
+                              ]),
+                          EventCardBuilder(
+                              title: 'Upcoming Events',
+                              descTitle: [
+                                'Temple Street Night',
+                                'Discovery of Hong Kong',
+                                'Bus Journey in Central',
+                                'Street Life Market'
+                              ],
+                              descSubTitle: [
+                                '1.1 km',
+                                '10 km',
+                                '2.5 km',
+                                '200 m'
+                              ],
+                              imgList: [
+                                TImages.hk_event_1,
+                                TImages.hk_event_2,
+                                TImages.hk_event_3,
+                                TImages.hk_event_4,
+                              ]),
                         ],
                       ),
                     ),

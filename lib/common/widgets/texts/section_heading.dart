@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
+import 'package:flutter_application_1/utils/constants/texts_style.dart';
 
 class TSectionHeading extends StatelessWidget {
   const TSectionHeading(
@@ -21,18 +22,17 @@ class TSectionHeading extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title,
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .apply(color: textColor),
+            style: TTextStyle.headlineXSmall,
             maxLines: 1,
             overflow: TextOverflow.ellipsis),
         if (showActionButton)
           TextButton(
             onPressed: onPressed,
             child: Text(buttonTitle,
-                style: TextStyle(
-                    color: TColors.primary, fontWeight: FontWeight.w800)),
+                style: const TextStyle(
+                    color: TColors.primary,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600)),
           ),
       ],
     );
