@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:flutter_application_1/features/location/screens/event_details/event_details.dart';
-import 'package:flutter_application_1/features/location/screens/explore/widgets/event_card_builder.dart';
+import 'package:flutter_application_1/common/widgets/events/builder/event_card_builder.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/icon_svg.dart';
 import 'package:flutter_application_1/utils/constants/image_string.dart';
@@ -50,7 +50,7 @@ class SearchScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
                               /// -- Search Bar
-                              _buildSearchBar(context),
+                              SearchBar(context: context),
                               const SizedBox(
                                   height: TSizes.spaceBtwItems * 1.5),
 
@@ -203,8 +203,18 @@ class SearchScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildSearchBar(BuildContext context) {
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    super.key,
+    required this.context,
+  });
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     return TextField(
       textAlignVertical: TextAlignVertical.center,
       style: TTextStyle.mainTitle,

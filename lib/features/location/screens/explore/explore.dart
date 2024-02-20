@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:flutter_application_1/common/widgets/custom_shapes/shapes/drage_handle.dart';
 import 'package:flutter_application_1/common/widgets/images/t_circular_image.dart';
-import 'package:flutter_application_1/features/location/screens/explore/widgets/event_card_builder.dart';
+import 'package:flutter_application_1/common/widgets/events/builder/event_card_builder.dart';
 import 'package:flutter_application_1/map.dart';
 import 'package:flutter_application_1/utils/constants/colors.dart';
 import 'package:flutter_application_1/utils/constants/image_string.dart';
