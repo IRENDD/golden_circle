@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/constants/image_string.dart';
+import 'package:jazz/utils/constants/image_string.dart';
 
 class EventsScreen extends StatelessWidget {
   const EventsScreen({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:flutter_application_1/common/widgets/custom_shapes/shapes/drage_handle.dart';
-import 'package:flutter_application_1/common/widgets/images/t_circular_image.dart';
-import 'package:flutter_application_1/common/widgets/events/builder/event_card_builder.dart';
-import 'package:flutter_application_1/map.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
-import 'package:flutter_application_1/utils/constants/image_string.dart';
-import 'package:flutter_application_1/utils/constants/sizes.dart';
+import 'package:jazz/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:jazz/common/widgets/custom_shapes/shapes/drage_handle.dart';
+import 'package:jazz/common/widgets/images/t_circular_image.dart';
+import 'package:jazz/common/widgets/events/builder/event_card_builder.dart';
+import 'package:jazz/map.dart';
+import 'package:jazz/utils/constants/colors.dart';
+import 'package:jazz/utils/constants/image_string.dart';
+import 'package:jazz/utils/constants/sizes.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
@@ -20,13 +20,13 @@ class ExploreScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            child: const MapScreen(),
+            child:  MapScreen(),
           ),
 
           /// Draggable Scrollable Sheet
           DraggableScrollableSheet(
-            initialChildSize: 0.4,
-            minChildSize: 0.3,
+            initialChildSize: 0.05,
+            minChildSize: 0.05,
             maxChildSize: 0.95,
             builder: (BuildContext context, ScrollController scrollController) {
               return Container(

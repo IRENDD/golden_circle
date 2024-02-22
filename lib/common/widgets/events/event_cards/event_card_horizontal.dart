@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
-import 'package:flutter_application_1/utils/constants/sizes.dart';
-import 'package:flutter_application_1/utils/constants/texts_style.dart';
+import 'package:jazz/utils/constants/colors.dart';
+import 'package:jazz/utils/constants/sizes.dart';
+import 'package:jazz/utils/constants/texts_style.dart';
 
 class TEventCardHorizontal extends StatelessWidget {
   const TEventCardHorizontal({

@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:flutter_application_1/common/widgets/images/t_rounded_image.dart';
-import 'package:flutter_application_1/features/location/controller/event_controller.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
+import 'package:jazz/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:jazz/common/widgets/images/t_rounded_image.dart';
+import 'package:jazz/features/location/controller/event_controller.dart';
+import 'package:jazz/utils/constants/colors.dart';
 import 'package:get/get.dart';
 
 class TPromoSlider extends StatelessWidget {

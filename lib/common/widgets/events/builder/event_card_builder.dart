@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/common/widgets/events/event_cards/event_card_horizontal.dart';
-import 'package:flutter_application_1/common/widgets/texts/section_heading.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
-import 'package:flutter_application_1/utils/constants/sizes.dart';
+import 'package:jazz/common/widgets/events/event_cards/event_card_horizontal.dart';
+import 'package:jazz/common/widgets/texts/section_heading.dart';
+import 'package:jazz/utils/constants/colors.dart';
+import 'package:jazz/utils/constants/sizes.dart';
 
 class EventCardBuilder extends StatelessWidget {
   const EventCardBuilder({

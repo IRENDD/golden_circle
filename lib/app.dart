@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/navigation_menu.dart';
-import 'package:flutter_application_1/utils/theme/theme.dart';
+import 'package:jazz/navigation_menu.dart';
+import 'package:jazz/utils/theme/theme.dart';
 import 'package:get/get.dart';
 
 class App extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
-import 'package:flutter_application_1/utils/constants/sizes.dart';
+import 'package:jazz/utils/constants/colors.dart';
+import 'package:jazz/utils/constants/sizes.dart';
 
 class TDragHandle extends StatelessWidget {
   const TDragHandle({

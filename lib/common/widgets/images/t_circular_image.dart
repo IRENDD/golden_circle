@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/utils/constants/colors.dart';
-import 'package:flutter_application_1/utils/constants/sizes.dart';
-import 'package:flutter_application_1/utils/helpers/helper_function.dart';
+import 'package:jazz/utils/constants/colors.dart';
+import 'package:jazz/utils/constants/sizes.dart';
+import 'package:jazz/utils/helpers/helper_function.dart';
 
 class TCircularImage extends StatelessWidget {
   const TCircularImage({

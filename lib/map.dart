@@ -1,30 +1,61 @@
+// import 'package:flutter/gestures.dart'; // fix
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:flutter_web_plugins/url_strategy.dart';
+// import 'backend/firebase/firebase_config.dart'; // how is this unused?
+import 'flutter_flow/flutter_flow_theme.dart';
+import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/nav/nav.dart';
+// import 'index.dart';
+// import 'package:jazz/app.dart';
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
-
+  // Basic Map Generation 
   @override
-  State createState() => _MapScreenState();
+  State<MapScreen> createState() => _MapScreenState();
+
+  static _MapScreenState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MapScreenState>()!;
 }
 
-class _MapScreenState extends State {
-  late GoogleMapController mapController;
+class _MapScreenState extends State<MapScreen> {
+  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  final LatLng _center = const LatLng(22.3039, 114.1889);
+  late AppStateNotifier _appStateNotifier;
+  late GoRouter _router;
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  @override
+  void initState() {
+    super.initState();
+
+    _appStateNotifier = AppStateNotifier.instance;
+    _router = createRouter(_appStateNotifier);
   }
+
+  void setThemeMode(ThemeMode mode) => setState(() {
+        _themeMode = mode;
+        FlutterFlowTheme.saveThemeMode(mode);
+      });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(target: _center, zoom: 11.0),
-      )),
+    return MaterialApp.router(
+      title: 'jazz',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('en', '')],
+      theme: ThemeData(
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
+      themeMode: _themeMode,
+      routerConfig: _router,
     );
   }
 }
+
