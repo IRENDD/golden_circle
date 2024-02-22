@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/theme/widgets/text_theme.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/theme/widgets/text_theme.dart';
 
 class TAppTheme {
   TAppTheme._();

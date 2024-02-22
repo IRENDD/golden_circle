@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:golden_circle/app.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'package:jazz/app.dart';
 
 // Driver program
 void main() async {
@@ -11,5 +11,5 @@ void main() async {
   await initFirebase();
   await FlutterFlowTheme.initialize(); // may be able to remove
 
-  runApp (const App()); // app made by Ilyas
+  runApp(const App()); // app made by Ilyas
 }

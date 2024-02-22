@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/common/widgets/events/event_cards/event_card_horizontal.dart';
-import 'package:jazz/common/widgets/texts/section_heading.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/constants/sizes.dart';
+import 'package:golden_circle/common/widgets/events/event_cards/event_card_horizontal.dart';
+import 'package:golden_circle/common/widgets/texts/section_heading.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/constants/sizes.dart';
 
 class EventCardBuilder extends StatelessWidget {
   const EventCardBuilder({

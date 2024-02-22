@@ -12,7 +12,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
 
 import '../map.dart';
-//import 'package:jazz/map.dart';
+//import 'package:golden_circle/map.dart';
 
 import 'lat_lng.dart';
 

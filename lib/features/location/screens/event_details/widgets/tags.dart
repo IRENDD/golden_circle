@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:golden_circle/common/widgets/custom_shapes/containers/circular_container.dart';
 
 class TTags extends StatelessWidget {
   const TTags({super.key, required this.tagNames});

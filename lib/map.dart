@@ -7,10 +7,10 @@ import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/nav/nav.dart';
 // import 'index.dart';
-// import 'package:jazz/app.dart';
+// import 'package:golden_circle/app.dart';
 
 class MapScreen extends StatefulWidget {
-  // Basic Map Generation 
+  // Basic Map Generation
   @override
   State<MapScreen> createState() => _MapScreenState();
 
@@ -40,7 +40,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'jazz',
+      title: 'golden_circle',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -58,4 +58,3 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 }
-

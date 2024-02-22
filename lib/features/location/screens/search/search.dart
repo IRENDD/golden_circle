@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:jazz/features/location/screens/event_details/event_details.dart';
-import 'package:jazz/common/widgets/events/builder/event_card_builder.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/constants/icon_svg.dart';
-import 'package:jazz/utils/constants/image_string.dart';
-import 'package:jazz/utils/constants/sizes.dart';
-import 'package:jazz/utils/constants/texts_style.dart';
+import 'package:golden_circle/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:golden_circle/features/location/screens/event_details/event_details.dart';
+import 'package:golden_circle/common/widgets/events/builder/event_card_builder.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/constants/icon_svg.dart';
+import 'package:golden_circle/utils/constants/image_string.dart';
+import 'package:golden_circle/utils/constants/sizes.dart';
+import 'package:golden_circle/utils/constants/texts_style.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 

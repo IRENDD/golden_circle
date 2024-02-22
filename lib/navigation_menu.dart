@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/features/location/screens/event_details/event_details.dart';
-import 'package:jazz/features/location/screens/events/events.dart';
-import 'package:jazz/features/location/screens/explore/explore.dart';
-import 'package:jazz/features/location/screens/search/search.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/constants/icon_svg.dart';
+import 'package:golden_circle/features/location/screens/explore/explore.dart';
+import 'package:golden_circle/features/location/screens/search/search.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:get/get.dart';
+import 'package:golden_circle/utils/constants/icon_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 
 class NavigationMenu extends StatelessWidget {

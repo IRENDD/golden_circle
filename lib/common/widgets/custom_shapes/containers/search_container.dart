@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/constants/icon_svg.dart';
-import 'package:jazz/utils/constants/sizes.dart';
-import 'package:jazz/utils/device/device_utility.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/constants/icon_svg.dart';
+import 'package:golden_circle/utils/constants/sizes.dart';
+import 'package:golden_circle/utils/device/device_utility.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 
 class TSeachContainer extends StatelessWidget {

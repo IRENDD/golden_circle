@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jazz/utils/constants/colors.dart';
-import 'package:jazz/utils/constants/texts_style.dart';
+import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/constants/texts_style.dart';
 
 class TSectionHeading extends StatelessWidget {
   const TSectionHeading(
