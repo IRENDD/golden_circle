@@ -8,7 +8,7 @@ class TEventCardHorizontal extends StatelessWidget {
     super.key,
     this.width = 200,
     this.imageHeight = 100,
-    this.showTextDate = false,
+    this.showTextDate = true,
     required this.image,
     required this.title,
     required this.subtitle,
@@ -64,28 +64,27 @@ class TEventCardHorizontal extends StatelessWidget {
                 ),
 
                 /// -- Text of Date
-                if (showTextDate)
+                if (showTextDate && subtitleDate != null)
                   Padding(
                     padding: const EdgeInsets.all(0),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 5.0),
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft:
-                                Radius.circular(TSizes.productImageRadius),
-                            topRight:
-                                Radius.circular(TSizes.productImageRadius)),
-                      ),
-                      child: const Text(
-                        'Today',
-                        style: TextStyle(
-                            color: TColors.secondary,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 5.0),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft:
+                                  Radius.circular(TSizes.productImageRadius),
+                              topRight:
+                                  Radius.circular(TSizes.productImageRadius)),
+                        ),
+                        child: Text(
+                          subtitleDate!,
+                          style: TextStyle(
+                              color: TColors.secondary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600),
+                        )),
                   ),
               ],
             ),
@@ -97,8 +96,10 @@ class TEventCardHorizontal extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: titleStyle ?? TTextStyle.eventCardTitleSmall),
-                  if (subtitleDate != null) ...[
+                  if (subtitleDate != null && !showTextDate) ...[
                     Text(subtitleDate!,
                         style:
                             subtitleStyle ?? TTextStyle.eventCardSubTitleSmall),
@@ -107,6 +108,8 @@ class TEventCardHorizontal extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(subtitle,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: subtitleStyle ??
                               TTextStyle.eventCardSubTitleSmall),
                       if (subtitleFee != null)

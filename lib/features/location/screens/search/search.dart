@@ -29,134 +29,163 @@ class _SearchScreenState extends State<SearchScreen> {
     retrieveDocuments();
   }
 
-Future<void> retrieveDocuments() async {
-  try {
-    // Get the Firestore collection reference
-    CollectionReference collection = EventsCollectionRecord.collection;
+  Future<void> retrieveDocuments() async {
+    try {
+      // Get the Firestore collection reference
+      CollectionReference collection = EventsCollectionRecord.collection;
 
-    // Get a list of documents in the collection
-    QuerySnapshot querySnapshot_Social = await collection.where('eventID',isEqualTo: 'social').get();
+      // Get a list of documents in the collection
+      QuerySnapshot querySnapshot_Social =
+          await collection.where('eventID', isEqualTo: 'social').get();
 
-    // Create a List<String> to store event details
-    List<String> socialEventNameList = [];
-    List<String> socialEventDetailList = [];
-    List<LatLng?> socialEventLocationList = [];
-    List<int> socialEventParticipationListi = [];
+      // Create a List<String> to store event details
+      List<String> socialEventNameList = [];
+      List<String> socialEventDetailList = [];
+      List<LatLng?> socialEventLocationList = [];
+      List<int> socialEventParticipationListi = [];
 
-    // Loop through the documents and populate the eventDetailsList
-    querySnapshot_Social.docs.forEach((doc) {
-      EventsCollectionRecord record = EventsCollectionRecord.fromSnapshot(doc);
+      // Loop through the documents and populate the eventDetailsList
+      querySnapshot_Social.docs.forEach((doc) {
+        EventsCollectionRecord record =
+            EventsCollectionRecord.fromSnapshot(doc);
 
-      // Add event details to the list
-      socialEventNameList.add(record.eventName);
-      socialEventDetailList.add(record.eventDetails);
-      socialEventLocationList.add(record.location);
-      socialEventParticipationListi.add(record.participants);
-    });
+        // Add event details to the list
+        socialEventNameList.add(record.eventName);
+        socialEventDetailList.add(record.eventDetails);
+        socialEventLocationList.add(record.location);
+        socialEventParticipationListi.add(record.participants);
+      });
 
-    List<String> socialEventParticipationList = socialEventParticipationListi.map((int number) => number.toString()).toList();
+      List<String> socialEventParticipationList = socialEventParticipationListi
+          .map((int number) => number.toString())
+          .toList();
 
-    // Create EventCardBuilder using the eventDetailsList
-    EventCardBuilder eventSocialCardBuilder = EventCardBuilder(
-      descTitle: socialEventNameList,
-      descSubTitle: socialEventParticipationList,
-      title:"Social Events: Meet new people",
-      imgList: const [
+      // Create EventCardBuilder using the eventDetailsList
+      EventCardBuilder eventSocialCardBuilder = EventCardBuilder(
+        showDate: true,
+        descSubTitleDate: const [
+          '14 February',
+          '25 January',
+          '17 March',
+          '1 June'
+        ],
+        descTitle: socialEventNameList,
+        descSubTitle: socialEventParticipationList,
+        title: "Social Events: Meet new people",
+        imgList: const [
           TImages.hk_event_1,
           TImages.hk_event_2,
           TImages.hk_event_3,
           TImages.hk_event_4,
         ],
-      // Other properties based on your record fields
-    );
+        // Other properties based on your record fields
+      );
 
-    QuerySnapshot querySnapshot_Active = await collection.where('eventID',isEqualTo: 'active').get();
+      QuerySnapshot querySnapshot_Active =
+          await collection.where('eventID', isEqualTo: 'active').get();
 
-    // Create a List<String> to store event details
-    List<String> activeEventNameList = [];
-    List<String> activeEventDetailList = [];
-    List<LatLng?> activeEventLocationList = [];
-    List<int> activeEventParticipationListi = [];
+      // Create a List<String> to store event details
+      List<String> activeEventNameList = [];
+      List<String> activeEventDetailList = [];
+      List<LatLng?> activeEventLocationList = [];
+      List<int> activeEventParticipationListi = [];
 
-    // Loop through the documents and populate the eventDetailsList
-    querySnapshot_Active.docs.forEach((doc) {
-      EventsCollectionRecord record = EventsCollectionRecord.fromSnapshot(doc);
+      // Loop through the documents and populate the eventDetailsList
+      querySnapshot_Active.docs.forEach((doc) {
+        EventsCollectionRecord record =
+            EventsCollectionRecord.fromSnapshot(doc);
 
-      // Add event details to the list
-      activeEventNameList.add(record.eventName);
-      activeEventDetailList.add(record.eventDetails);
-      activeEventLocationList.add(record.location);
-      activeEventParticipationListi.add(record.participants);
-    });
+        // Add event details to the list
+        activeEventNameList.add(record.eventName);
+        activeEventDetailList.add(record.eventDetails);
+        activeEventLocationList.add(record.location);
+        activeEventParticipationListi.add(record.participants);
+      });
 
-    List<String> activeEventParticipationList = activeEventParticipationListi.map((int number) => number.toString()).toList();
+      List<String> activeEventParticipationList = activeEventParticipationListi
+          .map((int number) => number.toString())
+          .toList();
 
-    // Create EventCardBuilder using the eventDetailsList
-    EventCardBuilder eventActiveCardBuilder = EventCardBuilder(
-      descTitle: activeEventNameList,
-      descSubTitle: activeEventParticipationList,
-      descSubTitleDate: activeEventParticipationList,
-      title:"Social Events: Meet new people",
-      imgList: const [
+      // Create EventCardBuilder using the eventDetailsList
+      EventCardBuilder eventActiveCardBuilder = EventCardBuilder(
+        showDate: true,
+        descSubTitleDate: const [
+          '14 February',
+          '25 January',
+          '17 March',
+          '1 June'
+        ],
+        onTap: [
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+        ],
+        descTitle: activeEventNameList,
+        descSubTitle: activeEventParticipationList,
+        title: "Social Events: Meet new people",
+        imgList: const [
           TImages.hk_event_1,
           TImages.hk_event_2,
           TImages.hk_event_3,
           TImages.hk_event_4,
         ],
-      // Other properties based on your record fields
-    );
+        // Other properties based on your record fields
+      );
 
-    // Display the retrieved event cards
-    setState(() {
-      eventCardsList = [eventSocialCardBuilder, eventActiveCardBuilder];
-    });
-  } catch (e) {
-    print('Error retrieving documents: $e');
+      // Display the retrieved event cards
+      setState(() {
+        eventCardsList = [eventSocialCardBuilder, eventActiveCardBuilder];
+      });
+    } catch (e) {
+      print('Error retrieving documents: $e');
+    }
   }
-}
 
-Future<void> retrieveActiveDocuments() async {
-  try {
-    // Get the Firestore collection reference
-    CollectionReference collection = EventsCollectionRecord.collection;
+  Future<void> retrieveActiveDocuments() async {
+    try {
+      // Get the Firestore collection reference
+      CollectionReference collection = EventsCollectionRecord.collection;
 
-    // Get a list of documents in the collection
-    QuerySnapshot querySnapshot = await collection.where('eventID',isEqualTo:'active').get();
+      // Get a list of documents in the collection
+      QuerySnapshot querySnapshot =
+          await collection.where('eventID', isEqualTo: 'active').get();
 
-    // Create a List<String> to store event details
-    List<String> eventDetailsList = [];
+      // Create a List<String> to store event details
+      List<String> eventDetailsList = [];
 
-    // Loop through the documents and populate the eventDetailsList
-    querySnapshot.docs.forEach((doc) {
-      EventsCollectionRecord record = EventsCollectionRecord.fromSnapshot(doc);
+      // Loop through the documents and populate the eventDetailsList
+      querySnapshot.docs.forEach((doc) {
+        EventsCollectionRecord record =
+            EventsCollectionRecord.fromSnapshot(doc);
 
-      // Add event details to the list
-      eventDetailsList.add(record.eventDetails);
-      // ... (you can add other fields to other lists if needed)
-    });
+        // Add event details to the list
+        eventDetailsList.add(record.eventDetails);
+        // ... (you can add other fields to other lists if needed)
+      });
 
-    // Create EventCardBuilder using the eventDetailsList
-    EventCardBuilder eventCardBuilder = EventCardBuilder(
-      descTitle: eventDetailsList,
-      descSubTitle: eventDetailsList,
-      title:"Social Events: Meet and conversate with new people",
-      imgList: const [
+      // Create EventCardBuilder using the eventDetailsList
+      EventCardBuilder eventCardBuilder = EventCardBuilder(
+        descTitle: eventDetailsList,
+        descSubTitle: eventDetailsList,
+        title: "Social Events: Meet and conversate with new people",
+        imgList: const [
           TImages.hk_event_1,
           TImages.hk_event_2,
           TImages.hk_event_3,
           TImages.hk_event_4,
         ],
-      // Other properties based on your record fields
-    );
+        // Other properties based on your record fields
+      );
 
-    // Display the retrieved event cards
-    setState(() {
-      eventCardsList = [eventCardBuilder];
-    });
-  } catch (e) {
-    print('Error retrieving documents: $e');
+      // Display the retrieved event cards
+      setState(() {
+        eventCardsList = [eventCardBuilder];
+      });
+    } catch (e) {
+      print('Error retrieving documents: $e');
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +279,6 @@ Future<void> retrieveActiveDocuments() async {
               },
             ),
           ),
-
           SliverToBoxAdapter(
             child: Column(
               children: eventCardsList.isNotEmpty
@@ -263,8 +291,6 @@ Future<void> retrieveActiveDocuments() async {
     );
   }
 }
-
-
 
 // class SearchScreen extends StatefulWidget {
 //   const SearchScreen({super.key});

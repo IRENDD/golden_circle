@@ -30,7 +30,7 @@ class EventCardBuilder extends StatelessWidget {
   final List<String> descTitle, descSubTitle;
   final List<String>? descSubTitleDate, descSubTitleFee;
   final TextStyle? descTitleStyle, descSubTitleStyle;
-  final VoidCallback? onTap;
+  final List<VoidCallback>? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class EventCardBuilder extends StatelessWidget {
                 imageHeight: imgHeight,
                 subtitleDate: descSubTitleDate?[index],
                 subtitleFee: descSubTitleFee?[index],
-                onPressed: onTap,
+                onPressed: onTap != null ? onTap![index] : null,
               ),
             ),
           ),
