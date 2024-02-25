@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:golden_circle/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:golden_circle/features/location/screens/event_create/widgets/event_build_text_field.dart';
 import 'package:golden_circle/flutter_flow/flutter_flow_util.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:golden_circle/utils/constants/icon_svg.dart';
@@ -190,89 +191,17 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                           Text('Event Information',
                               style: TTextStyle.headlineLarge),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: TColors.buttonSecondary,
-                              hintText: 'Event Name',
-                              hintStyle: TTextStyle.bodySubtitle2,
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 15),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.borderPrimary3, width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.secondary.withOpacity(0.7),
-                                    width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                            ),
-                          ),
+                          const CustomTextField(hintText: 'Event Name'),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: TColors.buttonSecondary,
+                          CustomTextField(
                               hintText: 'Event Category',
-                              hintStyle: TTextStyle.bodySubtitle2,
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 15),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.borderPrimary3, width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.secondary.withOpacity(0.7),
-                                    width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              suffixIcon: IconButton(
-                                  icon: Iconify(TIcons.svgArrowRight,
-                                      size: 17,
-                                      color:
-                                          TColors.secondary.withOpacity(0.7)),
-                                  onPressed: () {}),
-                            ),
-                          ),
+                              icon: TIcons.svgArrowRight.toString(),
+                              onTapIcon: () {}),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: TColors.buttonSecondary,
+                          CustomTextField(
                               hintText: 'Event Address',
-                              hintStyle: TTextStyle.bodySubtitle2,
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 15),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.borderPrimary3, width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.secondary.withOpacity(0.7),
-                                    width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              suffixIcon: IconButton(
-                                  icon: Iconify(TIcons.svgLocateMe,
-                                      size: 22,
-                                      color:
-                                          TColors.secondary.withOpacity(0.7)),
-                                  onPressed: () {}),
-                            ),
-                          ),
+                              icon: TIcons.svgLocateMe.toString(),
+                              onTapIcon: () {}),
                         ],
                       ),
                       const SizedBox(height: TSizes.spaceBtwSections),
@@ -441,30 +370,10 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                           Text('Event Description',
                               style: TTextStyle.headlineLarge),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          TextField(
-                            maxLines: 8,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: TColors.buttonSecondary,
+                          const CustomTextField(
                               hintText: 'Add event description here...',
-                              hintStyle: TTextStyle.bodySubtitle2,
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 15),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.borderPrimary3, width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: TColors.secondary.withOpacity(0.7),
-                                    width: 2.0),
-                                borderRadius: BorderRadius.circular(
-                                    TSizes.borderRadiusSm),
-                              ),
-                            ),
-                          ),
+                              icon: null,
+                              maxLines: 8),
                         ],
                       )
                     ],
