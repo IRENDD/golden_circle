@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:golden_circle/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:golden_circle/features/location/screens/event_create/widgets/event_build_text_field.dart';
+import 'package:golden_circle/features/location/screens/explore/explore.dart';
 import 'package:golden_circle/flutter_flow/flutter_flow_util.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:golden_circle/utils/constants/icon_svg.dart';
@@ -9,6 +9,8 @@ import 'package:golden_circle/utils/constants/sizes.dart';
 import 'package:golden_circle/utils/constants/texts_style.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:golden_circle/backend/schema/index.dart';
+import 'package:golden_circle/backend/schema/events_collection_record.dart';
 
 class EventCreateScreen extends StatefulWidget {
   const EventCreateScreen({super.key});
@@ -18,6 +20,11 @@ class EventCreateScreen extends StatefulWidget {
 }
 
 class _EventCreateScreenState extends State<EventCreateScreen> {
+  String eventName = '';
+  String eventID = '';
+  LatLng location = LatLng(37.7749, -122.4194);
+  int participants = 0;
+  String eventDetails = '';
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
 
@@ -126,6 +133,26 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
     }
   }
 
+  Future<void> createAndSaveDocument() async {
+    try {
+      // Create data for the new document
+      Map<String, dynamic> eventData = createEventsCollectionRecordData(
+        eventName: eventName, // replace with your data
+        eventID: eventID, // replace with your data
+        location: LatLng(37.7749, -122.4194), // replace with your data
+        participants: 2722024, // replace with your data
+        eventDetails: eventDetails, // replace with your data
+      );
+
+      // Add the new document to the 'events_collection'
+      await EventsCollectionRecord.collection.add(eventData);
+
+      print('Document added successfully');
+    } catch (e) {
+      print('Error creating and saving document: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,17 +218,27 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                           Text('Event Information',
                               style: TTextStyle.headlineLarge),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          const CustomTextField(hintText: 'Event Name'),
+                          CustomTextField(
+                            hintText: 'Event Name',
+                            onChanged: (value) {
+                              eventName = value;
+                            },
+                          ),
                           const SizedBox(height: TSizes.spaceBtwItems),
                           CustomTextField(
-                              hintText: 'Event Category',
-                              icon: TIcons.svgArrowRight.toString(),
-                              onTapIcon: () {}),
+                            hintText: 'Event Category',
+                            suffixIcon: TIcons.svgArrowRight,
+                            onSuffixIconPressed: () {},
+                            onChanged: (value) {
+                              eventID = value;
+                            },
+                          ),
                           const SizedBox(height: TSizes.spaceBtwItems),
                           CustomTextField(
-                              hintText: 'Event Address',
-                              icon: TIcons.svgLocateMe.toString(),
-                              onTapIcon: () {}),
+                            hintText: 'Event Address',
+                            suffixIcon: TIcons.svgLocateMe,
+                            onSuffixIconPressed: () {},
+                          ),
                         ],
                       ),
                       const SizedBox(height: TSizes.spaceBtwSections),
@@ -370,10 +407,13 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                           Text('Event Description',
                               style: TTextStyle.headlineLarge),
                           const SizedBox(height: TSizes.spaceBtwItems),
-                          const CustomTextField(
-                              hintText: 'Add event description here...',
-                              icon: null,
-                              maxLines: 8),
+                          CustomTextField(
+                            hintText: 'Add event description here...',
+                            maxLines: 8,
+                            onChanged: (value) {
+                              eventDetails = value;
+                            },
+                          ),
                         ],
                       )
                     ],
@@ -387,7 +427,10 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
             left: 30,
             right: 30,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                await createAndSaveDocument();
+                Get.back();
+              },
               style: ElevatedButton.styleFrom(
                 elevation: 6,
                 shape: RoundedRectangleBorder(
@@ -397,12 +440,9 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                 onPrimary: TColors.white,
               ),
               child: const Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 16), // horizontal padding for the content
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: Row(
-                  mainAxisSize: MainAxisSize
-                      .min, // This will shrink the row's width to its children width
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(width: 9),
                     Text(
