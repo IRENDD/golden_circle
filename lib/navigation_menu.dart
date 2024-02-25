@@ -5,6 +5,7 @@ import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:get/get.dart';
 import 'package:golden_circle/utils/constants/icon_svg.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:golden_circle/pages/profile/profile_screen.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -71,6 +72,6 @@ class NavigationController extends GetxController {
   final screens = [
     const ExploreScreen(),
     const SearchScreen(),
-    Container(color: Colors.orange)
+    const ProfileScreen(),
   ];
 }
