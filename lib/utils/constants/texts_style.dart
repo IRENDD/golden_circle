@@ -59,6 +59,13 @@ class TTextStyle {
     letterSpacing: -0.2,
   );
 
+  static final TextStyle bodyTitleDark = TextStyle(
+    color: TColors.black,
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+    letterSpacing: -0.2,
+  );
+
   static final TextStyle bodySubtitle = TextStyle(
     color: TColors.secondary.withOpacity(0.9),
     fontSize: 17,

@@ -262,10 +262,10 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 10, bottom: 5, left: 25, right: 25),
+                                      top: 10, bottom: 5, right: 25),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Row(
                                         children: [
@@ -318,6 +318,13 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                                             ),
                                           ],
                                         ),
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        child: VerticalDivider(
+                                            thickness: 2,
+                                            width: 2,
+                                            color: TColors.borderPrimary3),
                                       ),
                                       Column(
                                         children: [
@@ -414,6 +421,7 @@ class _EventCreateScreenState extends State<EventCreateScreen> {
                               eventDetails = value;
                             },
                           ),
+                          const SizedBox(height: TSizes.spaceBtwSections * 1.5),
                         ],
                       )
                     ],

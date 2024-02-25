@@ -63,15 +63,18 @@ class _SearchScreenState extends State<SearchScreen> {
 
       // Create EventCardBuilder using the eventDetailsList
       EventCardBuilder eventSocialCardBuilder = EventCardBuilder(
-        showDate: true,
-        descSubTitleDate: const [
-          '14 February',
-          '25 January',
-          '17 March',
-          '1 June'
-        ],
+        showDate: false,
+        descSubTitle: const ['14 February', '25 January', '17 March', '1 June'],
         descTitle: socialEventNameList,
-        descSubTitle: socialEventParticipationList,
+        descSubTitleDate: socialEventParticipationList,
+        height: 250,
+        imgHeight: 150,
+        imgWidth: 380,
+        descTitleStyle: TTextStyle.headlineSmall,
+        descSubTitleStyle: TTextStyle.bodyTitle,
+
+        descSubTitleFee: const ['Free', 'Free', 'From \$15', '\$5'],
+
         title: "Social Events: Meet new people",
         imgList: const [
           TImages.hk_event_1,
@@ -334,206 +337,6 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 }
-
-// class SearchScreen extends StatefulWidget {
-//   const SearchScreen({super.key});
-
-//   @override
-//   State<SearchScreen> createState() => _SearchScreenState();
-// }
-
-// class _SearchScreenState extends State<SearchScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: CustomScrollView(
-//         slivers: <Widget>[
-//           SliverAppBar(
-//             pinned: true,
-//             expandedHeight: 170,
-//             backgroundColor: TColors.white,
-//             flexibleSpace: LayoutBuilder(
-//               builder: (BuildContext context, BoxConstraints constraints) {
-//                 // bool isExpanded = constraints.biggest.height > kToolbarHeight;
-//                 return FlexibleSpaceBar(
-//                   background: Stack(
-//                     children: [
-//                       Container(
-//                         height: 200,
-//                         margin: const EdgeInsets.only(bottom: 15),
-//                         decoration: BoxDecoration(
-//                           color: TColors.white,
-//                           borderRadius: const BorderRadius.only(
-//                             bottomLeft: Radius.circular(TSizes.borderRadiusLg),
-//                             bottomRight: Radius.circular(TSizes.borderRadiusLg),
-//                           ),
-//                           boxShadow: [
-//                             BoxShadow(
-//                                 blurRadius: 10,
-//                                 color: TColors.black.withOpacity(0.45))
-//                           ],
-//                         ),
-//                         child: Padding(
-//                           padding: const EdgeInsets.symmetric(
-//                               horizontal: 20, vertical: 20),
-//                           child: Column(
-//                             mainAxisAlignment: MainAxisAlignment.end,
-//                             children: <Widget>[
-//                               /// -- Search Bar
-//                               SearchBar(context: context),
-//                               const SizedBox(
-//                                   height: TSizes.spaceBtwItems * 1.5),
-
-//                               /// -- Filter
-//                               SingleChildScrollView(
-//                                 scrollDirection: Axis.horizontal,
-//                                 child: Row(
-//                                   children: [
-//                                     TRoundedContainer(
-//                                       height: 40,
-//                                       radius: 9,
-//                                       backgroundColor: TColors.buttonPrimary,
-//                                       text: "Filters",
-//                                       textStyle: TTextStyle.bodySubtitle,
-//                                       icon: const Iconify(TIcons.svgFilter,
-//                                           size: 26, color: TColors.secondary),
-//                                     ),
-//                                     const SizedBox(width: TSizes.spaceBtwItems),
-//                                     const TRoundedContainer(
-//                                       height: 40,
-//                                       radius: 9,
-//                                       backgroundColor: TColors.secondary,
-//                                       text: "Date",
-//                                       textStyle: TTextStyle.bodySecondaryTitle,
-//                                       icon: Iconify(TIcons.svgEvents,
-//                                           size: 24, color: TColors.white),
-//                                       icon1: Iconify(TIcons.svgArrowBottom,
-//                                           size: 18, color: TColors.white),
-//                                     ),
-//                                     const SizedBox(width: TSizes.spaceBtwItems),
-//                                     const TRoundedContainer(
-//                                       height: 40,
-//                                       radius: 9,
-//                                       backgroundColor: TColors.secondary,
-//                                       text: "Category",
-//                                       textStyle: TTextStyle.bodySecondaryTitle,
-//                                       icon: Iconify(TIcons.svgEvents,
-//                                           size: 24, color: TColors.white),
-//                                       icon1: Iconify(TIcons.svgArrowBottom,
-//                                           size: 18, color: TColors.white),
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 );
-//               },
-//             ),
-//           ),
-//           SliverToBoxAdapter(
-//             child: Column(
-//               children: [
-//                 /// Main
-//                 EventCardBuilder(
-//                     onTap: () => Get.to(() => const EventDetailsScreen()),
-//                     title: 'Popular Events in Hong Kong',
-//                     height: 250,
-//                     imgHeight: 150,
-//                     imgWidth: 380,
-//                     showDate: false,
-//                     descTitleStyle: TTextStyle.headlineSmall,
-//                     descSubTitleStyle: TTextStyle.bodyTitle,
-//                     descSubTitleDate: const [
-//                       'February 14th',
-//                       'February 21st',
-//                       'March 1st',
-//                       'March 3rd'
-//                     ],
-//                     descSubTitleFee: const [
-//                       'Free',
-//                       'Free',
-//                       'From \$15',
-//                       '\$5'
-//                     ],
-//                     descTitle: const [
-//                       'Temple Street Night',
-//                       'Discovery of Hong Kong',
-//                       'Bus Journey in Central',
-//                       'Street Life Market'
-//                     ],
-//                     descSubTitle: const [
-//                       '1.1 km',
-//                       '10 km',
-//                       '2.5 km',
-//                       '200 m'
-//                     ],
-//                     imgList: const [
-//                       TImages.hk_event_1,
-//                       TImages.hk_event_2,
-//                       TImages.hk_event_3,
-//                       TImages.hk_event_4,
-//                     ]),
-//                 const EventCardBuilder(title: 'Upcoming Events', descTitle: [
-//                   'Temple Street Night',
-//                   'Discovery of Hong Kong',
-//                   'Bus Journey in Central',
-//                   'Street Life Market'
-//                 ], descSubTitle: [
-//                   '1.1 km',
-//                   '10 km',
-//                   '2.5 km',
-//                   '200 m'
-//                 ], imgList: [
-//                   TImages.hk_event_1,
-//                   TImages.hk_event_2,
-//                   TImages.hk_event_3,
-//                   TImages.hk_event_4,
-//                 ]),
-//                 const EventCardBuilder(title: 'Upcoming Events', descTitle: [
-//                   'Temple Street Night',
-//                   'Discovery of Hong Kong',
-//                   'Bus Journey in Central',
-//                   'Street Life Market'
-//                 ], descSubTitle: [
-//                   '1.1 km',
-//                   '10 km',
-//                   '2.5 km',
-//                   '200 m'
-//                 ], imgList: [
-//                   TImages.hk_event_1,
-//                   TImages.hk_event_2,
-//                   TImages.hk_event_3,
-//                   TImages.hk_event_4,
-//                 ]),
-//                 const EventCardBuilder(title: 'Upcoming Events', descTitle: [
-//                   'Temple Street Night',
-//                   'Discovery of Hong Kong',
-//                   'Bus Journey in Central',
-//                   'Street Life Market'
-//                 ], descSubTitle: [
-//                   '1.1 km',
-//                   '10 km',
-//                   '2.5 km',
-//                   '200 m'
-//                 ], imgList: [
-//                   TImages.hk_event_1,
-//                   TImages.hk_event_2,
-//                   TImages.hk_event_3,
-//                   TImages.hk_event_4,
-//                 ]),
-//               ],
-//             ),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
