@@ -9,6 +9,7 @@ class TSizes {
   // Other Padding and margin sizes
   static const double smm = 10.0;
   static const double m = 13.0;
+  static const double l = 25.0;
 
   // Icon sizes
   static const double iconXs = 12.0;

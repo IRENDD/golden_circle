@@ -9,7 +9,6 @@ import 'package:golden_circle/utils/constants/image_string.dart';
 import 'package:golden_circle/utils/constants/sizes.dart';
 import 'package:golden_circle/utils/constants/texts_style.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 
 class EventDetailsScreen extends StatefulWidget {

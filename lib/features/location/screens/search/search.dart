@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:golden_circle/backend/schema/index.dart';
 import 'package:golden_circle/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:golden_circle/features/location/screens/event_create/event_create.dart';
 import 'package:golden_circle/features/location/screens/event_details/event_details.dart';
 import 'package:golden_circle/common/widgets/events/builder/event_card_builder.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
@@ -190,102 +191,144 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            expandedHeight: 170,
-            backgroundColor: TColors.white,
-            flexibleSpace: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                // bool isExpanded = constraints.biggest.height > kToolbarHeight;
-                return FlexibleSpaceBar(
-                  background: Stack(
-                    children: [
-                      Container(
-                        height: 200,
-                        margin: const EdgeInsets.only(bottom: 15),
-                        decoration: BoxDecoration(
-                          color: TColors.white,
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(TSizes.borderRadiusLg),
-                            bottomRight: Radius.circular(TSizes.borderRadiusLg),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 10,
-                                color: TColors.black.withOpacity(0.45))
-                          ],
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              /// -- Search Bar
-                              SearchBar(context: context),
-                              const SizedBox(
-                                  height: TSizes.spaceBtwItems * 1.5),
-
-                              /// -- Filter
-                              SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    TRoundedContainer(
-                                      height: 40,
-                                      radius: 9,
-                                      backgroundColor: TColors.buttonPrimary,
-                                      text: "Filters",
-                                      textStyle: TTextStyle.bodySubtitle,
-                                      icon: const Iconify(TIcons.svgFilter,
-                                          size: 26, color: TColors.secondary),
-                                    ),
-                                    const SizedBox(width: TSizes.spaceBtwItems),
-                                    const TRoundedContainer(
-                                      height: 40,
-                                      radius: 9,
-                                      backgroundColor: TColors.secondary,
-                                      text: "Date",
-                                      textStyle: TTextStyle.bodySecondaryTitle,
-                                      icon: Iconify(TIcons.svgEvents,
-                                          size: 24, color: TColors.white),
-                                      icon1: Iconify(TIcons.svgArrowBottom,
-                                          size: 18, color: TColors.white),
-                                    ),
-                                    const SizedBox(width: TSizes.spaceBtwItems),
-                                    const TRoundedContainer(
-                                      height: 40,
-                                      radius: 9,
-                                      backgroundColor: TColors.secondary,
-                                      text: "Category",
-                                      textStyle: TTextStyle.bodySecondaryTitle,
-                                      icon: Iconify(TIcons.svgEvents,
-                                          size: 24, color: TColors.white),
-                                      icon1: Iconify(TIcons.svgArrowBottom,
-                                          size: 18, color: TColors.white),
-                                    ),
-                                  ],
-                                ),
+      body: Stack(
+        children: [
+          CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                pinned: true,
+                expandedHeight: 170,
+                backgroundColor: TColors.white,
+                flexibleSpace: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    // bool isExpanded = constraints.biggest.height > kToolbarHeight;
+                    return FlexibleSpaceBar(
+                      background: Stack(
+                        children: [
+                          Container(
+                            height: 200,
+                            margin: const EdgeInsets.only(bottom: 15),
+                            decoration: BoxDecoration(
+                              color: TColors.white,
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft:
+                                    Radius.circular(TSizes.borderRadiusLg),
+                                bottomRight:
+                                    Radius.circular(TSizes.borderRadiusLg),
                               ),
-                            ],
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    color: TColors.black.withOpacity(0.45))
+                              ],
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 20),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  /// -- Search Bar
+                                  SearchBar(context: context),
+                                  const SizedBox(
+                                      height: TSizes.spaceBtwItems * 1.5),
+
+                                  /// -- Filter
+                                  SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        TRoundedContainer(
+                                          height: 40,
+                                          radius: 9,
+                                          backgroundColor:
+                                              TColors.buttonPrimary,
+                                          text: "Filters",
+                                          textStyle: TTextStyle.bodySubtitle,
+                                          icon: const Iconify(TIcons.svgFilter,
+                                              size: 26,
+                                              color: TColors.secondary),
+                                        ),
+                                        const SizedBox(
+                                            width: TSizes.spaceBtwItems),
+                                        const TRoundedContainer(
+                                          height: 40,
+                                          radius: 9,
+                                          backgroundColor: TColors.secondary,
+                                          text: "Date",
+                                          textStyle:
+                                              TTextStyle.bodySecondaryTitle,
+                                          icon: Iconify(TIcons.svgEvents,
+                                              size: 24, color: TColors.white),
+                                          icon1: Iconify(TIcons.svgArrowBottom,
+                                              size: 18, color: TColors.white),
+                                        ),
+                                        const SizedBox(
+                                            width: TSizes.spaceBtwItems),
+                                        const TRoundedContainer(
+                                          height: 40,
+                                          radius: 9,
+                                          backgroundColor: TColors.secondary,
+                                          text: "Category",
+                                          textStyle:
+                                              TTextStyle.bodySecondaryTitle,
+                                          icon: Iconify(TIcons.svgEvents,
+                                              size: 24, color: TColors.white),
+                                          icon1: Iconify(TIcons.svgArrowBottom,
+                                              size: 18, color: TColors.white),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Column(
+                  children: eventCardsList.isNotEmpty
+                      ? eventCardsList
+                      : [Text('Loading events...')],
+                ),
+              )
+            ],
+          ),
+          Positioned(
+            bottom: 10,
+            right: 10,
+            child: Container(
+              child: ElevatedButton(
+                onPressed: () => Get.to(() => const EventCreateScreen()),
+                style: ElevatedButton.styleFrom(
+                  elevation: 6,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  primary: Color.fromARGB(255, 209, 169, 23),
+                  onPrimary: TColors.white,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  child: Row(
+                    children: [
+                      Iconify(TIcons.svgAdd, size: 23, color: TColors.white),
+                      SizedBox(width: 9),
+                      Text(
+                        'Create Event',
+                        style: TTextStyle.secondaryLargeButton,
                       ),
                     ],
                   ),
-                );
-              },
+                ),
+              ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: eventCardsList.isNotEmpty
-                  ? eventCardsList
-                  : [Text('Loading events...')],
-            ),
-          )
         ],
       ),
     );

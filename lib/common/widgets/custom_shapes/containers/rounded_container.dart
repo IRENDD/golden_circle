@@ -11,7 +11,6 @@ class TRoundedContainer extends StatelessWidget {
     this.height,
     this.margin,
     this.padding,
-    this.showBorder = false,
     this.radius = TSizes.cardRadiusLg,
     this.backgroundColor = TColors.white,
     this.text,
@@ -24,7 +23,6 @@ class TRoundedContainer extends StatelessWidget {
   final double? width, height;
   final double radius;
   final Widget? child;
-  final bool showBorder;
   final Border? border;
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding, margin;
@@ -39,7 +37,7 @@ class TRoundedContainer extends StatelessWidget {
     // If icon is provided, add it to the leftGroup list.
     if (icon != null) {
       leftGroup.add(icon!);
-      leftGroup.add(const SizedBox(width: 8)); // Space between icon and text
+      leftGroup.add(const SizedBox(width: 8));
     }
 
     // If text is provided, add it to the leftGroup list.
@@ -61,7 +59,7 @@ class TRoundedContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? border : null,
+        border: border,
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),

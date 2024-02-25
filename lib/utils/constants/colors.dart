@@ -19,6 +19,7 @@ class TColors {
   // Border colors
   static const Color borderPrimary = Color(0xFFA5A5A5);
   static Color borderPrimary2 = const Color(0xFFA5A5A5).withOpacity(0.35);
+  static Color borderPrimary3 = const Color(0xFFA5A5A5).withOpacity(0.25);
 
   // Shadows
   static Color darkShadow = const Color(0xFF232323).withOpacity(0.25);
