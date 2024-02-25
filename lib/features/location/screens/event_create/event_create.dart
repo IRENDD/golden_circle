@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:golden_circle/features/location/screens/event_create/widgets/event_build_text_field.dart';
 import 'package:golden_circle/features/location/screens/explore/explore.dart';
-import 'package:golden_circle/flutter_flow/flutter_flow_util.dart';
+import 'package:golden_circle/map_settings/map_settings_util.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:golden_circle/utils/constants/icon_svg.dart';
 import 'package:golden_circle/utils/constants/sizes.dart';

@@ -8,10 +8,10 @@ import '/backend/backend.dart';
 
 import '/index.dart';
 import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+import '/map_settings/map_settings_theme.dart';
+import '/map_settings/lat_lng.dart';
+import '/map_settings/place.dart';
+import '/map_settings/map_settings_util.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';

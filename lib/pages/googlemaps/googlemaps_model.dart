@@ -1,8 +1,8 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import '../../map_settings/map_settings_google_map.dart';
+import '../../map_settings/map_settings_theme.dart';
+import '../../map_settings/map_settings_util.dart';
+import '../../map_settings/map_settings_widgets.dart';
 import '/pages/modal11_create_note/modal11_create_note_widget.dart';
 import 'googlemaps_widget.dart' show GooglemapsWidget;
 import 'package:flutter/material.dart';
