@@ -19,7 +19,8 @@ class ExploreScreen extends StatelessWidget {
           /// Map
           SizedBox(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height,
+            //height: MediaQuery.of(context).size.height,
+            height:750,
             child: MapScreen(),
           ),
 

@@ -78,6 +78,16 @@ class _MapScreenState extends State<MapScreen> {
   late String lat;
   late String long;
 
+  void zoomIn() {
+    mapController.animateCamera(CameraUpdate.zoomIn());
+  }
+
+  void zoomOut() {
+    mapController.animateCamera(CameraUpdate.zoomOut());
+  }
+
+
+
   Set<Marker> markers = {};
 
   //final List<String> images = ['lib/assets/images/circle.png'];
@@ -182,6 +192,7 @@ class _MapScreenState extends State<MapScreen> {
                 myLocationButtonEnabled: true,
                 myLocationEnabled: true,
                 mapType: MapType.normal,
+                zoomControlsEnabled: false,
                 initialCameraPosition:
                     CameraPosition(target: _center, zoom: 11.0),
                 markers: Set<Marker>.of(_marker),
@@ -231,6 +242,40 @@ class _MapScreenState extends State<MapScreen> {
                 icon: const Icon(Icons.location_history),
               ),
             ),
+            Positioned(
+          // Customize the position as needed
+          bottom: 80.0,
+          right: 20.0,
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                width: 55,
+                height: 55,
+                child: FloatingActionButton(
+                  onPressed: zoomIn,
+                  materialTapTargetSize: MaterialTapTargetSize.padded,
+                  mini: true,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  child: const Icon(Icons.add),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 55,
+                height: 55,
+                child: FloatingActionButton(
+                  onPressed: zoomOut,
+                  materialTapTargetSize: MaterialTapTargetSize.padded,
+                  mini: true,
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  child: const Icon(Icons.remove),
+                ),
+              ),
+            ],
+          ),
+        ),
           ],
         ),
       ),
