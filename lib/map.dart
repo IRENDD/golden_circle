@@ -86,8 +86,6 @@ class _MapScreenState extends State<MapScreen> {
     mapController.animateCamera(CameraUpdate.zoomOut());
   }
 
-
-
   Set<Marker> markers = {};
 
   //final List<String> images = ['lib/assets/images/circle.png'];
@@ -200,7 +198,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
             Positioned(
               top: 20.0, // Adjust as necessary
-              left: 20.0, // Adjust as necessary
+              left: 10.0, // Adjust as necessary
               child: FloatingActionButton(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
@@ -214,7 +212,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
             Positioned(
               top: 20.0, // Adjust as necessary
-              right: 20.0, // Adjust as necessary
+              right: 10.0, // Adjust as necessary
               child: FloatingActionButton.extended(
                 onPressed: () async {
                   Position position = await _determinePosition();
@@ -243,39 +241,39 @@ class _MapScreenState extends State<MapScreen> {
               ),
             ),
             Positioned(
-          // Customize the position as needed
-          bottom: 80.0,
-          right: 20.0,
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                width: 55,
-                height: 55,
-                child: FloatingActionButton(
-                  onPressed: zoomIn,
-                  materialTapTargetSize: MaterialTapTargetSize.padded,
-                  mini: true,
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  child: const Icon(Icons.add),
-                ),
+              // Customize the position as needed
+              bottom: 80.0,
+              right: 20.0,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    width: 55,
+                    height: 55,
+                    child: FloatingActionButton(
+                      onPressed: zoomIn,
+                      materialTapTargetSize: MaterialTapTargetSize.padded,
+                      mini: true,
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      child: const Icon(Icons.add),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: 55,
+                    height: 55,
+                    child: FloatingActionButton(
+                      onPressed: zoomOut,
+                      materialTapTargetSize: MaterialTapTargetSize.padded,
+                      mini: true,
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      child: const Icon(Icons.remove),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 10),
-              SizedBox(
-                width: 55,
-                height: 55,
-                child: FloatingActionButton(
-                  onPressed: zoomOut,
-                  materialTapTargetSize: MaterialTapTargetSize.padded,
-                  mini: true,
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  child: const Icon(Icons.remove),
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
           ],
         ),
       ),

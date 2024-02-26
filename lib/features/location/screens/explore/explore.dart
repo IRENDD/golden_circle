@@ -7,6 +7,7 @@ import 'package:golden_circle/map.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
 import 'package:golden_circle/utils/constants/image_string.dart';
 import 'package:golden_circle/utils/constants/sizes.dart';
+import 'package:golden_circle/utils/constants/texts_style.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class ExploreScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             //height: MediaQuery.of(context).size.height,
-            height:750,
+            height: 730,
             child: MapScreen(),
           ),
 
@@ -91,7 +92,7 @@ class ExploreScreen extends StatelessWidget {
                                         ),
                                         SizedBox(width: TSizes.spaceBtwItems),
                                         TCircularImage(
-                                          image: TImages.user,
+                                          image: TImages.profile_pic,
                                           width: 40,
                                           height: 40,
                                           padding: 0,
@@ -111,11 +112,18 @@ class ExploreScreen extends StatelessWidget {
                         children: [
                           EventCardBuilder(
                               title: 'Upcoming Events',
+                              showDate: true,
+                              descSubTitleDate: [
+                                '25th Feb',
+                                '29th Feb',
+                                '1st Mar',
+                                '3rd Mar'
+                              ],
                               descTitle: [
                                 'Temple Street Night',
-                                'Discovery of Hong Kong',
+                                'Vintage Vibes Music Night',
                                 'Bus Journey in Central',
-                                'Street Life Market'
+                                'Timeless Treasures Bazaar'
                               ],
                               descSubTitle: [
                                 '1.1 km',
@@ -125,70 +133,67 @@ class ExploreScreen extends StatelessWidget {
                               ],
                               imgList: [
                                 TImages.hk_event_1,
-                                TImages.hk_event_2,
+                                TImages.jazz_event,
                                 TImages.hk_event_3,
                                 TImages.hk_event_4,
                               ]),
                           EventCardBuilder(
-                              title: 'Upcoming Events',
+                              title: 'Picks for You',
                               descTitle: [
-                                'Temple Street Night',
-                                'Discovery of Hong Kong',
-                                'Bus Journey in Central',
-                                'Street Life Market'
+                                'Golden Memories Book Club',
+                                'Reflections Art Exhibit',
+                                'Tranquil Tea Tasting',
+                                'Classic Cinema Nights'
+                              ],
+                              showDate: true,
+                              descSubTitleDate: [
+                                '26th Feb',
+                                '1st Mar',
+                                '5th Mar',
+                                '9th Mar'
                               ],
                               descSubTitle: [
-                                '1.1 km',
-                                '10 km',
-                                '2.5 km',
-                                '200 m'
+                                '5.6 km',
+                                '1.7 km',
+                                '500 m',
+                                '7.5 km'
                               ],
                               imgList: [
-                                TImages.hk_event_1,
-                                TImages.hk_event_2,
-                                TImages.hk_event_3,
-                                TImages.hk_event_4,
+                                TImages.book_event,
+                                TImages.exhibit_event,
+                                TImages.tea_event,
+                                TImages.movie_event,
                               ]),
                           EventCardBuilder(
-                              title: 'Upcoming Events',
+                              title: 'Sport Events',
+                              showDate: true,
+                              descSubTitleDate: [
+                                '4th Mar',
+                                '10th Mar',
+                                '15th Mar',
+                                '27th Mar'
+                              ],
                               descTitle: [
-                                'Temple Street Night',
-                                'Discovery of Hong Kong',
-                                'Bus Journey in Central',
-                                'Street Life Market'
+                                'Classic Golf Gala',
+                                'Graceful Dancing Derby',
+                                'Masters Table Tennis Challenge',
+                                'Aquatic Aerobics Adventure'
                               ],
                               descSubTitle: [
-                                '1.1 km',
-                                '10 km',
+                                '900 m',
+                                '5 km',
                                 '2.5 km',
-                                '200 m'
+                                '2.1 m'
                               ],
                               imgList: [
-                                TImages.hk_event_1,
-                                TImages.hk_event_2,
-                                TImages.hk_event_3,
-                                TImages.hk_event_4,
+                                TImages.golf_event,
+                                TImages.dance_event,
+                                TImages.tennis_event,
+                                TImages.aerobic_event,
                               ]),
-                          EventCardBuilder(
-                              title: 'Upcoming Events',
-                              descTitle: [
-                                'Temple Street Night',
-                                'Discovery of Hong Kong',
-                                'Bus Journey in Central',
-                                'Street Life Market'
-                              ],
-                              descSubTitle: [
-                                '1.1 km',
-                                '10 km',
-                                '2.5 km',
-                                '200 m'
-                              ],
-                              imgList: [
-                                TImages.hk_event_1,
-                                TImages.hk_event_2,
-                                TImages.hk_event_3,
-                                TImages.hk_event_4,
-                              ]),
+                          SizedBox(height: TSizes.spaceBtwItems),
+                          Text('Show More',
+                              style: TTextStyle.bodySecondaryTitle),
                         ],
                       ),
                     ),

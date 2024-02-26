@@ -64,25 +64,42 @@ class _SearchScreenState extends State<SearchScreen> {
       // Create EventCardBuilder using the eventDetailsList
       EventCardBuilder eventSocialCardBuilder = EventCardBuilder(
         showDate: false,
-        descSubTitle: const ['14 February', '25 January', '17 March', '1 June'],
-        descTitle: socialEventNameList,
-        descSubTitleDate: socialEventParticipationList,
+        descSubTitle: const ['1.1 km', '250 m', '2 km', '3.4 km'],
+        descTitle: [
+          'Temple Street Night',
+          'Wisdom Circle Discussion',
+          'Senior Social Mixer',
+          'Nostalgic Nights Dinner Club'
+        ],
+        descSubTitleDate: [
+          '25th February',
+          '27th February',
+          '2nd March',
+          '7th March'
+        ],
+        // descTitle: socialEventNameList,
+        // descSubTitleDate: socialEventParticipationList,
         height: 250,
         imgHeight: 150,
         imgWidth: 380,
         descTitleStyle: TTextStyle.headlineSmall,
         descSubTitleStyle: TTextStyle.bodyTitle,
+        onTap: [
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+          () => Get.to(() => const EventDetailsScreen()),
+        ],
 
-        descSubTitleFee: const ['Free', 'Free', 'From \$15', '\$5'],
+        descSubTitleFee: const ['Free', 'Free', 'From \$15', 'From \$35'],
 
         title: "Social Events: Meet new people",
         imgList: const [
           TImages.hk_event_1,
-          TImages.hk_event_2,
-          TImages.hk_event_3,
-          TImages.hk_event_4,
+          TImages.social_event,
+          TImages.social_event_2,
+          TImages.social_event_3,
         ],
-        // Other properties based on your record fields
       );
 
       QuerySnapshot querySnapshot_Active =
@@ -111,35 +128,79 @@ class _SearchScreenState extends State<SearchScreen> {
           .toList();
 
       // Create EventCardBuilder using the eventDetailsList
-      EventCardBuilder eventActiveCardBuilder = EventCardBuilder(
-        showDate: true,
-        descSubTitleDate: const [
-          '14 February',
-          '25 January',
-          '17 March',
-          '1 June'
-        ],
-        onTap: [
-          () => Get.to(() => const EventDetailsScreen()),
-          () => Get.to(() => const EventDetailsScreen()),
-          () => Get.to(() => const EventDetailsScreen()),
-          () => Get.to(() => const EventDetailsScreen()),
-        ],
-        descTitle: activeEventNameList,
-        descSubTitle: activeEventParticipationList,
-        title: "Social Events: Meet new people",
-        imgList: const [
-          TImages.hk_event_1,
-          TImages.hk_event_2,
-          TImages.hk_event_3,
-          TImages.hk_event_4,
-        ],
-        // Other properties based on your record fields
-      );
+      EventCardBuilder eventActiveCardBuilder1 = EventCardBuilder(
+          title: 'Because you liked Modern Proes',
+          descTitle: [
+            'Golden Memories Book Club',
+            'Reflections Art Exhibit',
+            'Tranquil Tea Tasting',
+            'Classic Cinema Nights'
+          ],
+          showDate: true,
+          descSubTitleDate: ['26th Feb', '1st Mar', '5th Mar', '9th Mar'],
+          descSubTitle: ['5.6 km', '1.7 km', '500 m', '7.5 km'],
+          imgList: [
+            TImages.book_event,
+            TImages.exhibit_event,
+            TImages.tea_event,
+            TImages.movie_event,
+          ]);
+
+      // Create EventCardBuilder using the eventDetailsList
+      const EventCardBuilder eventActiveCardBuilder2 = EventCardBuilder(
+          title: 'Historical Seminars',
+          descTitle: [
+            'Rome\'s Legacy: A Symposium on Ancient Influences',
+            'Innovations of the Han: The Foundations of Chinese Science and Technology',
+            'The Carolingian Renaissance: A New Dawn in Medieval Europe',
+            'Byzantium and Beyond: The Roman Empire\'s Second Life'
+          ],
+          showDate: true,
+          descSubTitleDate: ['1st Mar', '15th Mar', '28th Mar', '2nd Apr'],
+          descSubTitle: ['1.3 km', '6.5 km', '5.0 km', '7.7 km'],
+          imgList: [
+            TImages.roman_event,
+            TImages.han_event,
+            TImages.carolongian_event,
+            TImages.byzantium_event,
+          ]);
+
+      const EventCardBuilder eventActiveCardBuilder3 = EventCardBuilder(
+          title: 'Sport Events',
+          showDate: true,
+          descSubTitleDate: [
+            '4th Mar',
+            '10th Mar',
+            '15th Mar',
+            '27th Mar'
+          ],
+          descTitle: [
+            'Classic Golf Gala',
+            'Graceful Dancing Derby',
+            'Masters Table Tennis Challenge',
+            'Aquatic Aerobics Adventure'
+          ],
+          descSubTitle: [
+            '900 m',
+            '5 km',
+            '2.5 km',
+            '2.1 m'
+          ],
+          imgList: [
+            TImages.golf_event,
+            TImages.dance_event,
+            TImages.tennis_event,
+            TImages.aerobic_event,
+          ]);
 
       // Display the retrieved event cards
       setState(() {
-        eventCardsList = [eventSocialCardBuilder, eventActiveCardBuilder];
+        eventCardsList = [
+          eventSocialCardBuilder,
+          eventActiveCardBuilder1,
+          eventActiveCardBuilder2,
+          eventActiveCardBuilder3
+        ];
       });
     } catch (e) {
       print('Error retrieving documents: $e');

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:golden_circle/features/location/screens/profile/UpdateProfileScreen.dart';
 import 'package:golden_circle/features/location/screens/profile/profile_menu.dart';
 import 'package:golden_circle/utils/constants/colors.dart';
+import 'package:golden_circle/utils/constants/image_string.dart';
 import 'package:golden_circle/utils/constants/texts_style.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
-                  child: Image.asset('assets/images/1.png'),
+                  child: Image.asset(TImages.profile_pic),
                 ),
               ),
               const SizedBox(height: 10),

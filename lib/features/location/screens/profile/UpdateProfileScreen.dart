@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:golden_circle/utils/constants/image_string.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
   const UpdateProfileScreen({super.key});
@@ -14,7 +15,7 @@ class UpdateProfileScreen extends StatelessWidget {
         ),
         title: const Text(
           'Edit Profile',
-          style: TextStyle(color: Color(0xFF6B555A) , fontSize: 20),
+          style: TextStyle(color: Color(0xFF6B555A), fontSize: 20),
         ),
       ),
       body: SingleChildScrollView(
@@ -28,7 +29,7 @@ class UpdateProfileScreen extends StatelessWidget {
                       height: 120,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: Image.asset('assets/images/1.png'),
+                        child: Image.asset(TImages.profile_pic),
                       )),
                   Positioned(
                     bottom: 0,
