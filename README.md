@@ -4,6 +4,7 @@
 
 ## About the project
 An platform dedicated to combating the pervasive issue of loneliness among the elderly population. Our mission is to foster a vibrant community where older people can effortlessly discover events tailored specifically to their interests and host their own events. This initiative not only enriches the social lives of our esteemed senior members but also cultivates a sense of belonging and connection within this distinguished community.
+[Link for the video presentation - https://www.youtube.com/watch?v=xZ3XPaTxtno&list=LL&index=4&t=6s]
 
 ## UN Taget Goals
 
